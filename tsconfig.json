@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",                            // ✅ Ensures alias resolution starts at project root
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "paths": {
+      "@/*": ["./*"],                          // ✅ Root alias
+      "@/components/*": ["components/*"],      // ✅ For component imports
+      "@/lib/*": ["lib/*"],                    // ✅ For utility libs
+      "@/app/*": ["app/*"],                    // ✅ For Next.js app directory
+      "@/hooks/*": ["hooks/*"]                 // ✅ Allows: import { useToast } from '@/hooks/use-toast';
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
