@@ -8,10 +8,13 @@ type Props = {
   };
 
 function FooterColumn({ index, data }: Props) {
-    const columnItems = data.map((item, index) => 
-        index === 0 
-        ? <h5 className="font-bold">{item}</h5>
-        : <p>{item}</p>);
+  const columnItems = data.map((item, i) =>
+    i === 0 ? (
+      <h5 key={i} className="font-bold">{item}</h5>
+    ) : (
+      <p key={i}>{item}</p>
+    )
+  );
 
     return (<motion.div
         initial={{
