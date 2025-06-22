@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
 import EmptyState from "@/components/EmptyState";
@@ -25,15 +27,13 @@ export default async function Home({ searchParams }: HomeProps) {
     <ClientOnly>
       <Container>
         <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 overflow-x-hidden">
-          {listing.map((list) => {
-            return (
-              <ListingCard
-                key={list.id}
-                data={list}
-                currentUser={currentUser}
-              />
-            );
-          })}
+          {listing.map((list) => (
+            <ListingCard
+              key={list.id}
+              data={list}
+              currentUser={currentUser}
+            />
+          ))}
         </div>
       </Container>
     </ClientOnly>
